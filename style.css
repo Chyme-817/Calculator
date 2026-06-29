@@ -7,6 +7,10 @@
     background-color: #ffe6ec;
     margin: 0;
 }
+h1{
+    color: #ff477e;
+    margin-bottom: 20px;
+}
 .calculator-box{
     background-color: #ffb3c6;
     padding: 20px;
