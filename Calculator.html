@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
     <title>Casio Calculator</title>
+    <link rel="stylesheet" href="style.css">
     <head>
         <body>
             <div class="calculator-box">
 
             <input type="text" id="calcDisplay" disabled><br>
             <button onclick="clearDisplay()">Clear</button><br>
+            <button onclick="calculateSquareRoot()">√</button>
             <button onclick="calculate('(')">(</button>
             <button onclick="calculate(')')">)</button>
             <button onclick="calculate('**')">^</button><br>
-            
+
             <button onclick="calculate('9')">9</button>
             <button onclick="calculate('8')">8</button>
             <button onclick="calculate('7')">7</button>
@@ -28,8 +30,10 @@
 
             <button onclick="calculate('0')">0</button>
             <button onclick="calculate('.')">.</button>
-            <button onclick="calculateResult()">=</button>
             <button onclick="calculate('+')">+</button>
+            <button onclick="calculateResult()">=</button>
+            </div>
+
             <script>
                 function calculate(num){
                     const calculateShow = document.getElementById("calcDisplay");
@@ -42,6 +46,10 @@
                 function calculateResult(){
                     const variabo = document.getElementById("calcDisplay");
                     variabo.value = eval(variabo.value);
+                }
+                function calculateSquareRoot(){
+                    const variabo = document.getElementById("calcDisplay");
+                    variabo.value = Math.sqrt(eval(variabo.value));
                 }
             </script>
 
