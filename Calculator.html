@@ -1,78 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <title>Casio Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <head>
-        <body>
-            
-            <div class="calculator-box">
-                <h1>Casio </h1>
+<title>Casio Calculator</title>
+<link rel="stylesheet" href="style.css">
 
-            <input type="text" id="calcDisplay" disabled><br>
-            <button onclick="clearDisplay()">Clear</button>
-            <button onclick="calculateBackspace()">⌫</button><br>
-            <button onclick="calculateSquare()">x²</button>
-            <button onclick="calculateCos()">cos</button>
-            <button onclick="calculateSin()">sin</button>
-            <button onclick="calculateTan()">tan</button><br>
-            <button onclick="calculateSquareRoot()">√</button>
-            <button onclick="calculate('(')">(</button>
-            <button onclick="calculate(')')">)</button>
-            <button onclick="calculate('**')">^</button><br>
-            <button onclick="calculate('9')">9</button>
-            <button onclick="calculate('8')">8</button>
-            <button onclick="calculate('7')">7</button>
-            <button onclick="calculate('/')">/</button><br>
-            <button onclick="calculate('6')">6</button>
-            <button onclick="calculate('5')">5</button>
-            <button onclick="calculate('4')">4</button>
-            <button onclick="calculate('*')">x</button><br>
-            <button onclick="calculate('3')">3</button>
-            <button onclick="calculate('2')">2</button>
-            <button onclick="calculate('1')">1</button>
-            <button onclick="calculate('-')">-</button><br>
-            <button onclick="calculate('0')">0</button>
-            <button onclick="calculate('.')">.</button>
-            <button onclick="calculate('+')">+</button>
-            <button onclick="calculateResult()">=</button>
-            </div>
+<head>
 
-            <script>
-                function calculate(num){
-                    const calculateShow = document.getElementById("calcDisplay");
-                    calculateShow.value += num;
-                }
-                function clearDisplay(){
-                    const variabo = document.getElementById("calcDisplay");
-                    variabo.value = '';
-                }
-                function calculateResult(){
-                    const variabo = document.getElementById("calcDisplay");
-                    variabo.value = eval(variabo.value);
-                }
-                function calculateSquareRoot(){
-                    const variabo = document.getElementById("calcDisplay");
-                    variabo.value = Math.sqrt(eval(variabo.value));
-                }
-                function calculateSquare(){
-                    const variabo = document.getElementById("calcDisplay");
-                    variabo.value = Math.pow(eval(variabo.value), 2);
-                }
-                function calculateCos(){
-                    const variabo = document.getElementById("calcDisplay");
-                    variabo.value = Math.cos(eval(variabo.value));
-                }
-                function calculateSin(){
-                    const variabo = document.getElementById("calcDisplay");
-                    variabo.value = Math.sin(eval(variabo.value));
-                }
-                function calculateTan(){
-                    const variabo = document.getElementById("calcDisplay");
-                    variabo.value = Math.tan(eval(variabo.value));
-                }
-            </script>
+<body>
+
+    <div class="calculator-box">
+        <h1>Casio </h1>
+
+        <input type="text" id="calcDisplay" disabled><br>
+        <button onclick="clearDisplay()">Clear</button>
+        <button onclick="calculateBackspace()">BS</button><br>
+        <button onclick="calculateSquare()">x²</button>
+        <button onclick="calculateCos()">cos</button>
+        <button onclick="calculateSin()">sin</button>
+        <button onclick="calculateTan()">tan</button><br>
+        <button onclick="calculateSquareRoot()">√</button>
+        <button onclick="calculate('(')">(</button>
+        <button onclick="calculate(')')">)</button>
+        <button onclick="calculate('**')">^</button><br>
+        <button onclick="calculate('9')">9</button>
+        <button onclick="calculate('8')">8</button>
+        <button onclick="calculate('7')">7</button>
+        <button onclick="calculate('/')">/</button><br>
+        <button onclick="calculate('6')">6</button>
+        <button onclick="calculate('5')">5</button>
+        <button onclick="calculate('4')">4</button>
+        <button onclick="calculate('*')">x</button><br>
+        <button onclick="calculate('3')">3</button>
+        <button onclick="calculate('2')">2</button>
+        <button onclick="calculate('1')">1</button>
+        <button onclick="calculate('-')">-</button><br>
+        <button onclick="calculate('0')">0</button>
+        <button onclick="calculate('.')">.</button>
+        <button onclick="calculate('+')">+</button>
+        <button onclick="calculateResult()">=</button>
+    </div>
+
+    <script>
 
 
-        </body>
-    </head>
+        const calculateShow = document.getElementById("calcDisplay");
+
+        function calculate(num) {
+
+            calculateShow.value += num;
+        }
+        function clearDisplay() {
+
+            calculateShow.value = '';
+        }
+        function calculateResult() {
+
+            calculateShow.value = eval(calculateShow.value);
+        }
+        function calculateSquareRoot() {
+
+            calculateShow.value = Math.sqrt(eval(calculateShow.value));
+        }
+        function calculateSquare() {
+
+            calculateShow.value = Math.pow(eval(calculateShow.value), 2);
+        }
+        function calculateCos() {
+
+            calculateShow.value = Math.cos(eval(calculateShow.value));
+        }
+        function calculateSin() {
+
+            calculateShow.value = Math.sin(eval(calculateShow.value));
+        }
+        function calculateTan() {
+
+            calculateShow.value = Math.tan(eval(calculateShow.value));
+        }
+        function calculateBackspace() {
+
+            calculateShow.value = calculateShow.value.slice(0, -1);
+        }
+        
+        function calculateResult() {
+            let variabo = calculateShow.value;
+
+            variabo = variabo.replace(/√(\d+(\.\d+)?)/g, "Math.sqrt($1)");
+            variabo = variabo.replace(/(\d+)\/(\d+)\*(\d+)/g, "$1/($2*$3)");
+
+            try {n 
+                calculateShow.value = eval(variabo);
+            } catch (error) {
+                calculateShow.value = "Error";
+            }
+        }
+    </script>
+
+
+</body>
+</head>
+
 </html>
