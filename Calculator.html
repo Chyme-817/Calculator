@@ -10,6 +10,10 @@
 
             <input type="text" id="calcDisplay" disabled><br>
             <button onclick="clearDisplay()">Clear</button><br>
+            <button onclick="calculateSquare()">x²</button>
+            <button onclick="calculateCos()">cos</button>
+            <button onclick="calculateSin()">sin</button>
+            <button onclick="calculateTan()">tan</button><br>
             <button onclick="calculateSquareRoot()">√</button>
             <button onclick="calculate('(')">(</button>
             <button onclick="calculate(')')">)</button>
@@ -48,6 +52,22 @@
                 function calculateSquareRoot(){
                     const variabo = document.getElementById("calcDisplay");
                     variabo.value = Math.sqrt(eval(variabo.value));
+                }
+                function calculateSquare(){
+                    const variabo = document.getElementById("calcDisplay");
+                    variabo.value = Math.pow(eval(variabo.value), 2);
+                }
+                function calculateCos(){
+                    const variabo = document.getElementById("calcDisplay");
+                    variabo.value = Math.cos(eval(variabo.value));
+                }
+                function calculateSin(){
+                    const variabo = document.getElementById("calcDisplay");
+                    variabo.value = Math.sin(eval(variabo.value));
+                }
+                function calculateTan(){
+                    const variabo = document.getElementById("calcDisplay");
+                    variabo.value = Math.tan(eval(variabo.value));
                 }
             </script>
 
